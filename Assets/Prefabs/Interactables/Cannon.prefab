@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2295555728173224864}
   - component: {fileID: 2295555728173224867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2295555728961134530}
   - component: {fileID: 2295555728961134533}
   - component: {fileID: 20446089630761645}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cannon
   m_TagString: Interactables
   m_Icon: {fileID: 0}

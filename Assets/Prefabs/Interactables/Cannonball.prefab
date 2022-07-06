@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5148581587360149893}
   - component: {fileID: 5148581587360149897}
   - component: {fileID: -1197005083334963135}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cannonball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcea0c1acfea234458ad5e3cba088bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: 5
+  destination: 10
   disolveParticle: {fileID: 3339256243658416313, guid: 4de862e5a0b3c8d44bdde3320cc9a466, type: 3}
   exlosionSFX: {fileID: -1197005083334963135}
 --- !u!82 &-1197005083334963135

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1101110787628154434}
   - component: {fileID: -1094352327345811998}
   - component: {fileID: -1504479675218896549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bounce Pad
   m_TagString: Interactables
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1101110787697991502}
   - component: {fileID: 1101110787697991503}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}

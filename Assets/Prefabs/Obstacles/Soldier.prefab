@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4805010702919510196}
   - component: {fileID: 4805010702919510195}
   - component: {fileID: 9078653510879228922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4805010703084388170}
   - component: {fileID: 4805010703084388171}
   - component: {fileID: 4805010703084388168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Soldier
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4805010703522680101}
   - component: {fileID: 4805010703522680100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,6 +333,10 @@ PrefabInstance:
     - target: {fileID: 6754095762242861792, guid: 5320dc072bad1e2499860179f1909b36, type: 3}
       propertyPath: m_Name
       value: Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754095762242861792, guid: 5320dc072bad1e2499860179f1909b36, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5320dc072bad1e2499860179f1909b36, type: 3}

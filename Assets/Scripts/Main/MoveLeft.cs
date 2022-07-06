@@ -9,17 +9,20 @@ public class MoveLeft : MonoBehaviour
 
     private float leftBorder = -40f;
 
+    private bool isStop;
+
     // Start is called before the first frame update
     void Start()
     {
         player =  GameObject.Find("Player").gameObject.GetComponent<PlayerController>();
+        isStop = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Stop when the game is over
-        if (!player.gameOver)
+        if (!player.gameOver && !isStop)
         {
             transform.Translate(Vector2.left * m_Speed * Time.deltaTime);
         }
@@ -30,5 +33,10 @@ public class MoveLeft : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public void setStop()
+    {
+        isStop = true;
     }
 }

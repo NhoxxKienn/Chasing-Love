@@ -17,10 +17,10 @@ public class CannonController : MonoBehaviour
     [SerializeField] private AudioSource shootingSFX;
 
     // Minimum travel distance of the cannonball
-    private float minDistance = 0;
+    private float minDistance = 1;
 
     private float chargeRate = 20;
-    private float maxCharge = 6;
+    private float maxCharge = 8;
     private float charge;
 
 

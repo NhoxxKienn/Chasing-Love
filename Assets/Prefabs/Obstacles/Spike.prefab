@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6649840069631695098}
   - component: {fileID: 6649840069631695093}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6649840070532246939}
   - component: {fileID: 6649840070532246938}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Idle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 6649840071155796663}
   - component: {fileID: 6649840071155796657}
   - component: {fileID: 8963487177126807690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spike
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -263,4 +263,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

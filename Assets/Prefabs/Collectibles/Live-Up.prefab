@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6192301493752564203}
   - component: {fileID: 6192301493752564204}
   - component: {fileID: 3443560417477540518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Live-Up
   m_TagString: Live-Up
   m_Icon: {fileID: 0}
