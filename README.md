@@ -3,7 +3,7 @@
  
  *DevLog*: https://docs.google.com/document/d/13lCfXuuTK9QI8-oE61x5qICWTMuj_M03c2_IQsJp6cc/edit?usp=sharing
  
- *Unity Play*: 
+ *Unity Play*: https://play.unity.com/mg/other/webgl-builds-219501
  
  *Description*: You are a Pirate, who is chasing the love of his life, a parrot named Brief. But she is a parrot from the navy (a forbidden love). So now you must overcome  challenges and enemies to get to your Love.
 
