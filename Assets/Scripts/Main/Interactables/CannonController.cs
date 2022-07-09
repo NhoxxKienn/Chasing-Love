@@ -43,7 +43,7 @@ public class CannonController : MonoBehaviour
     void Update()
     {
         // While holding down space, charge the bar
-        if (Input.GetButton("jump") && !hasShot && isInside)
+        if (Input.GetButton("Jump") && !hasShot && isInside)
         {
             if (!chargingBar.activeSelf)
             {

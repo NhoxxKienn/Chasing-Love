@@ -19,7 +19,7 @@ public class Boss_Dead : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         deadTimer -= Time.deltaTime;
-        animator.gameObject.transform.Translate(Vector2.down * 2 * Time.deltaTime);
+        animator.gameObject.transform.Translate(Vector2.down * 3 * Time.deltaTime);
         if (deadTimer < 0)
         {
             

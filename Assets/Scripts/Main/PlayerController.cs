@@ -260,7 +260,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator TransitionToWinScene()
     {
         // Wait one second and load end scene
-        yield return new WaitForSecondsRealtime(0.8f);
+        yield return new WaitForSecondsRealtime(0.7f);
         SceneManager.LoadScene(3);
     }
 
