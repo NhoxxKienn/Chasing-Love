@@ -9,7 +9,7 @@
 
 *Mechanics*: This is an endless sidescroller game with only one button (Spacebar). Primary for jumping (but can be use in different contexts)
 
-*DevLog*: Dev Diary_Minh Huy Tran
+*DevLog*: [Dev Diary_Minh Huy Tran](https://docs.google.com/document/d/13lCfXuuTK9QI8-oE61x5qICWTMuj_M03c2_IQsJp6cc/edit?usp=sharing)
  
 
 Thank you for trying the game. Leave feedback if you can.
