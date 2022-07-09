@@ -40,5 +40,11 @@ public class CannonballController : MonoBehaviour
             Destroy(other.gameObject);
             exlosionSFX.Play();
         }
+
+        if (other.CompareTag("Boss"))
+        {
+            Instantiate(disolveParticle, other.transform.position, Quaternion.identity);
+            exlosionSFX.Play();
+        }
     }
 }

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     
     // UI
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI instructionText;
     public GameObject RedFlag; // Indicator shooting enemies 
     public GameObject GreenFlag; // Indicator for normal obstacles
     public GameObject YellowFlag; // Indicator for interactable wave
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     int numOfCollectibles = 2;
     public GameObject beerPrefab;
     public GameObject liveUpPrefab;
+    public GameObject parrotPrefab;
      
     // Obstacles
     int numOfObstacles = 5;
@@ -37,19 +39,41 @@ public class GameManager : MonoBehaviour
     private float startDelay = 0;
     private float repeatRate = 4;
 
+    // Background Music
+    public AudioSource normalMusic;
+    public AudioSource bossMusic;
+
     // To check if the game is over
     private PlayerController playerController;
 
     // Keep track of the score
     private int score;
+    //////////////////
+    // Boss Battles///
+    //////////////////
+
+    [SerializeField] private GameObject bossIntro;
+    public GameObject boss;
+
+    private Vector3 bossIntroPos = new Vector3(7, -8, 0);
+    
+    public BossController bossController;
+
+    private bool isBossBattle;
+    public bool isWon;
+    private int waveTillBoss;
 
 
     // Start is called before the first frame update
     void Start()
     { 
+
         // Call spawn method automatically after an amount of time
         InvokeRepeating("SpawnObstacles", startDelay, repeatRate);
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
+        // Show then disable instruction
+        StartCoroutine(ShowInstructionText());
 
         // Start score counting
         score = 0;
@@ -60,6 +84,13 @@ public class GameManager : MonoBehaviour
         GreenFlag.SetActive(false);
         YellowFlag.SetActive(false);
         BlueFlag.SetActive(false);
+
+        // Wave till boss
+        waveTillBoss = 25;
+
+        // Setup background music
+        normalMusic.Play();
+        bossMusic.Stop();
     }
 
     // Update is called once per frame
@@ -71,12 +102,38 @@ public class GameManager : MonoBehaviour
             if (ScoreManager.instance!= null)
                 ScoreManager.instance.currentScore = score;
         }
+
+        if (waveTillBoss <=0 && !isBossBattle)
+        {
+            isBossBattle = true;
+            StartCoroutine(SummonBoss());
+        }
+
+        if (bossController != null)
+        {
+            if (bossController.isEnrage)
+            {
+                Time.timeScale = 1.4f;
+            }
+            else
+            {
+                Time.timeScale = 1.1f;
+            }
+        }
+
+        if (isWon)
+        {
+            Vector3 parrotPos = new Vector3(20, -1.4f, 0);
+            Instantiate(parrotPrefab, parrotPos, parrotPrefab.transform.rotation);
+            isWon = false;
+        }
     }
 
     void SpawnObstacles()
     {
-        if (!playerController.gameOver)
+        if (!playerController.gameOver && !isBossBattle)
         {
+            waveTillBoss--;
             // 75% Normal wave: 2 obstacles and 1 collectible
             if (Random.Range(0, 4) <= 2)
             {
@@ -212,6 +269,21 @@ public class GameManager : MonoBehaviour
 
         flagController.targetObject = target;
         flag.SetActive(true);
+    }
 
+    // Call the boss intro animation and then summon the boss
+    IEnumerator SummonBoss()
+    {
+        yield return new WaitForSeconds(repeatRate);
+        normalMusic.Stop();
+        bossMusic.Play();
+        Instantiate(bossIntro, bossIntroPos, bossIntro.transform.rotation);
+    }
+
+    IEnumerator ShowInstructionText()
+    {
+        instructionText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        instructionText.gameObject.SetActive(false);
     }
 }

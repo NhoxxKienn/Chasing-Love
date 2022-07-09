@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource landingSFX;
     [SerializeField] AudioSource hurtingSFX;
     [SerializeField] AudioSource collectingSFX;
+    [SerializeField] AudioSource winningSFX;
 
 
 
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_GameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         animator = GetComponent<Animator>();
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        
         // Handle jump
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumpCount && !gameOver && !isInterating)
         {
@@ -158,6 +161,7 @@ public class PlayerController : MonoBehaviour
                     animator.SetBool("isDead", true);
                     gameOver = true;
                     Destroy(collision.gameObject);
+                    Time.timeScale = 1;
                     StartCoroutine("TransitionToEndScene");
                 }
                 else
@@ -196,9 +200,45 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.CompareTag("Parrot"))
+        {
+            m_GameManager.AddScore(500);
+            gameOver = true;
+            winningSFX.Play();
+            StartCoroutine("TransitionToWinScene");
+
+        }
+
         if (other.CompareTag("Interactables"))
         {
             isInterating = true;
+        }
+
+        if (other.CompareTag("Boss"))
+        {
+            if (isInvincible)
+            {
+                
+            }
+            else
+            {
+                playerLives--;
+                healthBars[maxLives - 1].GetComponent<HealthBar>().LifeDown();
+                if (playerLives == 0)
+                {
+                    hurtingSFX.Play();
+                    animator.SetBool("isDead", true);
+                    gameOver = true;
+                    StartCoroutine("TransitionToEndScene");
+                }
+                else
+                {
+                    hurtingSFX.Play();
+                    animator.SetBool("isHurt", true);
+                    isInvincible = true;
+                    StartCoroutine("Invincible");
+                }
+            }
         }
     }
 
@@ -213,8 +253,15 @@ public class PlayerController : MonoBehaviour
     IEnumerator TransitionToEndScene()
     {
         // Wait one second and load end scene
-        yield return new WaitForSecondsRealtime(0.9f);
+        yield return new WaitForSecondsRealtime(0.5f);
         SceneManager.LoadScene(2);
+    }
+
+    IEnumerator TransitionToWinScene()
+    {
+        // Wait one second and load end scene
+        yield return new WaitForSecondsRealtime(0.8f);
+        SceneManager.LoadScene(3);
     }
 
     IEnumerator Invincible()
