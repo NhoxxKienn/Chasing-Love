@@ -158,6 +158,7 @@ MonoBehaviour:
   soldierPrefab: {fileID: 4805010703084388172, guid: 83da1de449c74d7428f495367b4a83e6, type: 3}
   bombPrefab: {fileID: 7640197263968116203, guid: 42a0920b031023f498e0ec1e723ae6b1, type: 3}
   liveUpPrefab: {fileID: 6192301493752564200, guid: d71481fd68365774ba72147f04a6ada5, type: 3}
+  beerPrefab: {fileID: 8831739415436479401, guid: 875c507b44469a549932c73ce15dbb18, type: 3}
   cannonPrefab: {fileID: 2295555728961134558, guid: 1c0a3575fafe1a94c95ffd8ce3929c51, type: 3}
   bouncePadPrefab: {fileID: 1101110787628154436, guid: 44d6e34548f314442ac29993b39e90e2, type: 3}
   bossFallSFX: {fileID: -2461592802518678919}

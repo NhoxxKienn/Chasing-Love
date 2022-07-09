@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         BlueFlag.SetActive(false);
 
         // Wave till boss
-        waveTillBoss = 25;
+        waveTillBoss = 20;
 
         // Setup background music
         normalMusic.Play();
@@ -106,6 +106,12 @@ public class GameManager : MonoBehaviour
         if (waveTillBoss <=0 && !isBossBattle)
         {
             isBossBattle = true;
+            
+            YellowFlag.SetActive(true);
+            BlueFlag.SetActive(true);
+            RedFlag.SetActive(true);
+            GreenFlag.SetActive(true);
+            StartCoroutine("BossWarning");
             StartCoroutine(SummonBoss());
         }
 
@@ -269,6 +275,28 @@ public class GameManager : MonoBehaviour
 
         flagController.targetObject = target;
         flag.SetActive(true);
+    }
+
+    IEnumerator BossWarning()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            yield return new WaitForSeconds(repeatRate / 9);
+            if (RedFlag.activeSelf || YellowFlag.activeSelf || BlueFlag.activeSelf || GreenFlag.activeSelf)
+            {
+                YellowFlag.SetActive(false);
+                BlueFlag.SetActive(false);
+                RedFlag.SetActive(false);
+                GreenFlag.SetActive(false);
+            } 
+            else
+            {
+                YellowFlag.SetActive(true);
+                BlueFlag.SetActive(true);
+                RedFlag.SetActive(true);
+                GreenFlag.SetActive(true);
+            }
+        }
     }
 
     // Call the boss intro animation and then summon the boss

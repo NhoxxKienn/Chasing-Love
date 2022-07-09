@@ -13,6 +13,9 @@ public class WinningManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI titleText;
 
+    public AudioSource normalMusic;
+    public AudioSource hiddenMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +23,15 @@ public class WinningManager : MonoBehaviour
         {
             if (ScoreManager.instance.currentScore == 1107)
             {
-                titleText.text = "Happy Birthday Brief! I Love You";
+                titleText.fontSize = 130;
+                titleText.text = "Happy Birthday Brief! \nI Love You!";
+                normalMusic.Stop();
+                hiddenMusic.Play();
             }
             else
             {
-                titleText.text = "Victory!";
+                titleText.fontSize = 200;
+                titleText.text = "Victory!!!";
             }
             if (ScoreManager.instance.currentScore > ScoreManager.instance.highScore)
             {

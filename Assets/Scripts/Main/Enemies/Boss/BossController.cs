@@ -23,6 +23,7 @@ public class BossController : MonoBehaviour
     public GameObject soldierPrefab;
     public GameObject bombPrefab;
     public GameObject liveUpPrefab;
+    public GameObject beerPrefab;
 
 
     // Interactables to Spawn
@@ -138,6 +139,13 @@ public class BossController : MonoBehaviour
                                 liveUpCountdown++;
                             }
 
+                        }
+                        else
+                        {
+                            if ((int)Random.Range(0, 4) > 2)
+                            {
+                                Instantiate(beerPrefab, new Vector3(spawnPosX, spawnPosY, 0), beerPrefab.transform.rotation);
+                            }
                         }
                     }
                 }
