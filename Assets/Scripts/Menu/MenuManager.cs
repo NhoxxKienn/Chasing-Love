@@ -40,7 +40,7 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             taps++;
             if (taps == 1)
@@ -70,7 +70,7 @@ public class MenuManager : MonoBehaviour
         }
 
         // Quit if hit Esc
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
 #if UNITY_EDITOR
             EditorApplication.ExitPlaymode();

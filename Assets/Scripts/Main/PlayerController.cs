@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
     {   
         
         // Handle jump
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumpCount && !gameOver && !isInterating)
+        if (Input.GetButtonDown("Jump") && jumpCount < maxJumpCount && !gameOver && !isInterating)
         {
             // Reset the velocity before starting the next jump
             m_Rigidbody.velocity = Vector3.zero;

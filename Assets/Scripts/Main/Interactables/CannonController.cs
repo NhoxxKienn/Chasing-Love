@@ -43,7 +43,7 @@ public class CannonController : MonoBehaviour
     void Update()
     {
         // While holding down space, charge the bar
-        if (Input.GetKey(KeyCode.Space) && !hasShot && isInside)
+        if (Input.GetButton("jump") && !hasShot && isInside)
         {
             if (!chargingBar.activeSelf)
             {
@@ -69,7 +69,7 @@ public class CannonController : MonoBehaviour
         }
 
         // If release the spacebar, shoot the cannonball
-        if (Input.GetKeyUp(KeyCode.Space) && isInside && !hasShot)
+        if (Input.GetButtonUp("Jump") && isInside && !hasShot)
         {
             GameObject cannonball = Instantiate(cannonballPrefab,
                     new Vector3(transform.position.x, cannonballHeight, 0),
