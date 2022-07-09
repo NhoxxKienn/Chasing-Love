@@ -20,11 +20,15 @@ public class EagleController : MonoBehaviour
     {
         if (transform.position.x < checkBorder)
         {
-            if (player.transform.position.y < transform.position.y)
+            if (player.transform.position.y < transform.position.y - 0.4f)
                 transform.Translate(Vector2.down * flightSpeed * Time.deltaTime);
-            else
+            else if (player.transform.position.y > transform.position.y - 0.4f)
             {
                 transform.Translate(Vector2.up * flightSpeed * Time.deltaTime);
+            }
+            else
+            {
+
             }
         }
     }

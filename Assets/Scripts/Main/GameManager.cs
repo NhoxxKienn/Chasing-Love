@@ -307,6 +307,10 @@ public class GameManager : MonoBehaviour
                 GreenFlag.SetActive(true);
             }
         }
+        YellowFlag.SetActive(false);
+        BlueFlag.SetActive(false);
+        RedFlag.SetActive(false);
+        GreenFlag.SetActive(false);
     }
 
     // Call the boss intro animation and then summon the boss

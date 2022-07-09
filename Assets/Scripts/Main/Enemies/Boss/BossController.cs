@@ -159,7 +159,7 @@ public class BossController : MonoBehaviour
                 Instantiate(cannonPrefab, new Vector3(spawnPosX, -2.5f, 0), cannonPrefab.transform.rotation);
                 for (int i = 0; i < numOfSpawns; i++)
                 {
-                    spawnPosX = 10 + 7 + (i * 0.5f);
+                    spawnPosX = 10 + 9 + (i * 0.5f);
                     Instantiate(soldierPrefab, new Vector3(spawnPosX, -2, 0), soldierPrefab.transform.rotation);
                 }
             }

@@ -27,13 +27,13 @@ public class Boss_Charge : StateMachineBehaviour
         else
         {
             chargeAttack = false;
-            if (animator.gameObject.transform.position.x < rightBorder)
+            if (animator.gameObject.transform.position.x <= rightBorder)
             {
                 animator.gameObject.transform.Translate(Vector2.right * chargeSpeed * Time.deltaTime);
             }
             else
             {
-                animator.SetTrigger("isIdle");
+                animator.SetTrigger("isIdle");  
             }
         }
     }

@@ -3030,7 +3030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389242090ca198446a2201f3e7db8b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 340
+  m_Speed: 380
 --- !u!1 &616435551
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,7 +4201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_jumpForce: 29
-  normalGravityScale: 11
+  normalGravityScale: 10
   fallingGravityScale: 10
   gameOver: 0
   isInvincible: 0
