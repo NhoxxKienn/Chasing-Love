@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     // UI
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI instructionText;
+    public TextMeshProUGUI interactableText;
+    private bool hasShown;
     public GameObject RedFlag; // Indicator shooting enemies 
     public GameObject GreenFlag; // Indicator for normal obstacles
     public GameObject YellowFlag; // Indicator for interactable wave
@@ -67,6 +69,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+        hasShown = false;
+        interactableText.gameObject.SetActive(false); ;
 
         // Call spawn method automatically after an amount of time
         InvokeRepeating("SpawnObstacles", startDelay, repeatRate);
@@ -141,13 +145,19 @@ public class GameManager : MonoBehaviour
         {
             waveTillBoss--;
             // 75% Normal wave: 2 obstacles and 1 collectible
-            if (Random.Range(0, 4) <= 2)
+            if (Random.Range(0, 4) <= 2 || waveTillBoss > 17)
             {
                 SpawnNormalWave();
             }
             // 25% Interactable wave: 1 interactables with 4 enemies
             else
             {
+                if (!hasShown)
+                {
+                    hasShown = true;
+                    StartCoroutine(ShowInteractableInstructionText());
+
+                }
                 SpawnInteractableWave();
             }
         }
@@ -311,7 +321,14 @@ public class GameManager : MonoBehaviour
     IEnumerator ShowInstructionText()
     {
         instructionText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.2f);
         instructionText.gameObject.SetActive(false);
+    }
+
+    IEnumerator ShowInteractableInstructionText()
+    {
+        interactableText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        interactableText.gameObject.SetActive(false);
     }
 }

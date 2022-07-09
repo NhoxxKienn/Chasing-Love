@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         {
             // Reset the velocity before starting the next jump
             m_Rigidbody.velocity = Vector3.zero;
-            m_Rigidbody.AddForce(Vector2.up * m_jumpForce, ForceMode2D.Impulse);
+            m_Rigidbody.AddForce(Vector2.up * (m_jumpForce - jumpCount * 5), ForceMode2D.Impulse);
             jumpCount++;
             animator.SetBool("isJumping", true);
             animator.SetBool("isFalling", false);

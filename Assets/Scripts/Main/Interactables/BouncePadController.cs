@@ -66,7 +66,7 @@ public class BouncePadController : MonoBehaviour
         {
             float jumpForce = baseJumpForce * charge;
             player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            player.GetComponent<PlayerController>().jumpCount++;
+            player.GetComponent<PlayerController>().jumpCount = player.GetComponent<PlayerController>().maxJumpCount;
             chargingBar.SetActive(false);
             hasBounce = true;
             animator.SetBool("isPressed", false);   
