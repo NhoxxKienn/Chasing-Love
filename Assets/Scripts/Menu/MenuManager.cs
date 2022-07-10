@@ -16,8 +16,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject[] buttons;
     private int currentIndex;
     private float waitTime = 0.25f;
-    private float tapTime = 0;
-    private int taps = 0;
+    [SerializeField]private float tapTime = 0;
+    [SerializeField]private int taps = 0;
 
     // Buttons sound effects
     [SerializeField] private AudioSource switchingSFX;
@@ -49,7 +49,7 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-        if (taps == 1 &&  (Time.time - tapTime) > waitTime )
+        if (taps >= 1 &&  (Time.time - tapTime) > waitTime )
         {
             buttons[currentIndex].GetComponent<Animator>().SetBool("isHighlighted", false);
             if (currentIndex < buttons.Length - 1) currentIndex++;
