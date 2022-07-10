@@ -29,7 +29,7 @@ public class BossController : MonoBehaviour
     // Interactables to Spawn
     public GameObject cannonPrefab;
     public GameObject bouncePadPrefab;
-    private Vector2 bouncePadSpawnPos = new Vector2(2, -2.5f);
+    private Vector2 bouncePadSpawnPos = new Vector2(4.8f, -2.5f);
 
     // Sound Effects;
     public AudioSource bossFallSFX;
@@ -99,9 +99,9 @@ public class BossController : MonoBehaviour
         if (!playerController.gameOver && isIdle && !gameManager.isWon)
         {
             isIdle=false;
-            int index = Random.Range(0, 5);
+            int index = Random.Range(0, 10);
             // 40%: Charge Attack
-            if ( index < 2 )
+            if ( index < 4 )
             {
                 bossPreparationSFX.Play();
                 bossAnimator.SetTrigger("Preparation");
@@ -109,8 +109,8 @@ public class BossController : MonoBehaviour
                 Instantiate(bouncePadPrefab, bouncePadSpawnPos, bouncePadPrefab.transform.rotation);
 
             }
-            // 40% Spawn Obstacles
-            else if (index >= 2 && index < 4)
+            // 30% Spawn Obstacles
+            else if (index >= 4 && index < 7)
             {
                 bossSpawnObstacleSFX.Play();
                 bossAnimator.SetTrigger("SpawnObstacle");
@@ -150,7 +150,7 @@ public class BossController : MonoBehaviour
                     }
                 }
             }
-            else // 20%: Summon Soldiers
+            else // 30%: Summon Soldiers
             {
                 bossSummonSFX.Play();
                 bossAnimator.SetTrigger("Summon");
@@ -168,7 +168,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator ChargePreparation()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         bossAnimator.SetTrigger("Charge");
         bossChargeSFX.Play();
     }

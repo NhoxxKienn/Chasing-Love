@@ -17,4 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Winning Scene.unity
     guid: 43dc0c9fdef55594ba8fa4fd1bcc27e4
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d9249322137563649828c390afaed7da, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e1b605fee9ef3324e81e48e49c25461c, type: 2}

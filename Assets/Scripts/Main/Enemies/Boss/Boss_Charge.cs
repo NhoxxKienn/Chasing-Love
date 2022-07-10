@@ -6,13 +6,15 @@ public class Boss_Charge : StateMachineBehaviour
 {
     private BossController bossController;
     private float leftBorder = -3f;
-    private float rightBorder = 7f;
-    private float chargeSpeed = 20f;
+    private float rightBorder = 7.5f;
+    private float chargeSpeed = 19f;
     private bool chargeAttack = true;
+    private bool stopMoving;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        stopMoving = false;
         chargeAttack = true;
         bossController = animator.gameObject.GetComponent<BossController>();
     }
@@ -27,12 +29,14 @@ public class Boss_Charge : StateMachineBehaviour
         else
         {
             chargeAttack = false;
-            if (animator.gameObject.transform.position.x <= rightBorder)
+            if (animator.gameObject.transform.position.x <= rightBorder && !stopMoving)
             {
-                animator.gameObject.transform.Translate(Vector2.right * chargeSpeed * Time.deltaTime);
+                animator.gameObject.transform.Translate(Vector2.right * chargeSpeed * 1.5f  * Time.deltaTime);
             }
             else
             {
+                stopMoving=true;
+                animator.gameObject.transform.position = new Vector3(7.5f, -1.5f, 0);
                 animator.SetTrigger("isIdle");  
             }
         }

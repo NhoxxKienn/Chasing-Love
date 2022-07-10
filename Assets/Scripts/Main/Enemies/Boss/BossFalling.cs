@@ -17,8 +17,9 @@ public class BossFalling : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       if (animator.gameObject.transform.position.y <= -2)
+       if (animator.gameObject.transform.position.y <= -1.5)
         {
+            animator.gameObject.transform.position =  new Vector3(7.5f, -1.5f, 0);
             bossController.bossFallSFX.Play();
             animator.SetTrigger("isIdle");
         }

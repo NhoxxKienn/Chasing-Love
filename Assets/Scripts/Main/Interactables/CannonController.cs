@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class CannonController : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class CannonController : MonoBehaviour
     // Charging Bar (UI)
     public GameObject chargingBarPrefab;
     private GameObject chargingBar;
+
+    private GameManager gameManager;
+
+    // Instruction Text for first use
+    public TextMeshProUGUI instructionText;
 
     // Shooting SFX
     [SerializeField] private AudioSource shootingSFX;
@@ -37,6 +43,17 @@ public class CannonController : MonoBehaviour
         charge = 0;
         hasShot = false;
         isInside = false;
+
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if (gameManager.hasShown)
+        {
+            instructionText.gameObject.SetActive(false);
+        }
+        else
+        {
+            gameManager.hasShown = true;
+            instructionText.gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame

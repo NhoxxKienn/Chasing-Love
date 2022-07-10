@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI instructionText;
     public TextMeshProUGUI interactableText;
-    private bool hasShown;
+    public bool hasShown;
     public GameObject RedFlag; // Indicator shooting enemies 
     public GameObject GreenFlag; // Indicator for normal obstacles
     public GameObject YellowFlag; // Indicator for interactable wave
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject bossIntro;
     public GameObject boss;
 
-    private Vector3 bossIntroPos = new Vector3(7, -8, 0);
+    private Vector3 bossIntroPos = new Vector3(7.5f, -8, 0);
     
     public BossController bossController;
 
@@ -152,12 +152,14 @@ public class GameManager : MonoBehaviour
             // 25% Interactable wave: 1 interactables with 4 enemies
             else
             {
+                /*
                 if (!hasShown)
                 {
                     hasShown = true;
                     StartCoroutine(ShowInteractableInstructionText());
 
                 }
+                */
                 SpawnInteractableWave();
             }
         }

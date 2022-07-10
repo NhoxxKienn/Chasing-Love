@@ -203,7 +203,6 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Parrot"))
         {
             m_GameManager.AddScore(500);
-            gameOver = true;
             winningSFX.Play();
             StartCoroutine("TransitionToWinScene");
 
@@ -260,7 +259,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator TransitionToWinScene()
     {
         // Wait one second and load end scene
-        yield return new WaitForSecondsRealtime(0.7f);
+        yield return new WaitForSecondsRealtime(0.3f);
+        gameOver = true;
         SceneManager.LoadScene(3);
     }
 

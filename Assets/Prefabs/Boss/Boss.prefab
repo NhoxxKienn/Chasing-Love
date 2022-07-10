@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5566758208719355034}
   - component: {fileID: 5566758208719355035}
   - component: {fileID: 5566758208719355044}
-  - component: {fileID: 5566758208719355033}
   - component: {fileID: 998555748}
   - component: {fileID: 2174099231401526628}
   - component: {fileID: -2461592802518678919}
@@ -21,6 +20,8 @@ GameObject:
   - component: {fileID: -7294327226250699042}
   - component: {fileID: -4454681407907120311}
   - component: {fileID: 4799936220323858016}
+  - component: {fileID: 778573547465653279}
+  - component: {fileID: 3338737375220951515}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Boss
@@ -115,32 +116,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &5566758208719355033
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5566758208719355045}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.36570954, y: 0.10897988}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 2.8125}
-    newSize: {x: 4.27907, y: 2.875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.1879601, y: 1.6580883}
-  m_EdgeRadius: 0
 --- !u!114 &998555748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,3 +912,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!70 &778573547465653279
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566758208719355045}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.558498, y: 0.3728782}
+  m_Size: {x: 2.9363563, y: 1.918518}
+  m_Direction: 1
+--- !u!50 &3338737375220951515
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5566758208719355045}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 6

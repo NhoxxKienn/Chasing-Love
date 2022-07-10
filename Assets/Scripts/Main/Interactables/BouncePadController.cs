@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BouncePadController : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class BouncePadController : MonoBehaviour
     private GameObject player;
 
     private Animator animator;
+    private GameManager gameManager;
+
+    // Instruction Text for first use
+    public TextMeshProUGUI instructionText;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +41,17 @@ public class BouncePadController : MonoBehaviour
         charge = 0;
         player = GameObject.Find("Player");
         animator = GetComponent<Animator>();
+       
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        if(gameManager.hasShown)
+        {
+            instructionText.gameObject.SetActive(false);
+        }
+        else
+        {
+            instructionText.gameObject.SetActive(true);
+            gameManager.hasShown = true;
+        }
 
     }
 
