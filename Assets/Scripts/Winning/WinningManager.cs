@@ -33,6 +33,8 @@ public class WinningManager : MonoBehaviour
                 titleText.fontSize = 200;
                 titleText.text = "Victory!!!";
             }
+
+
             if (ScoreManager.instance.currentScore > ScoreManager.instance.highScore)
             {
                 ScoreManager.instance.highScore = ScoreManager.instance.currentScore;

@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI instructionText;
     public TextMeshProUGUI interactableText;
     public bool hasShown;
+    public bool hasShownEagleInstruction;
+
     public GameObject RedFlag; // Indicator shooting enemies 
     public GameObject GreenFlag; // Indicator for normal obstacles
     public GameObject YellowFlag; // Indicator for interactable wave
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
     void Start()
     { 
         hasShown = false;
+        hasShownEagleInstruction = false;
         interactableText.gameObject.SetActive(false); ;
 
         // Call spawn method automatically after an amount of time
@@ -100,13 +103,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // When game is over, save the current score
-        if (playerController.gameOver)
-        {
-            if (ScoreManager.instance!= null)
-                ScoreManager.instance.currentScore = score;
-        }
-
         if (waveTillBoss <=0 && !isBossBattle)
         {
             isBossBattle = true;
@@ -179,6 +175,12 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
+    }
+
+    public void SaveSccore()
+    {
+        if (ScoreManager.instance != null)
+            ScoreManager.instance.currentScore = score;
     }
 
     // Spawn wave of interactable item and obstacles that can only be overcomed by using the interactables

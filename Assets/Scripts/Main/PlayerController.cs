@@ -253,6 +253,7 @@ public class PlayerController : MonoBehaviour
     {
         // Wait one second and load end scene
         yield return new WaitForSecondsRealtime(0.5f);
+        m_GameManager.SaveSccore();
         SceneManager.LoadScene(2);
     }
 
@@ -261,6 +262,7 @@ public class PlayerController : MonoBehaviour
         // Wait one second and load end scene
         yield return new WaitForSecondsRealtime(0.3f);
         gameOver = true;
+        m_GameManager.SaveSccore();
         SceneManager.LoadScene(3);
     }
 
