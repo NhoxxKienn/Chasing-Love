@@ -33,7 +33,7 @@ public class EndManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
         {
             //Switch to menu scene
             SceneManager.LoadScene(0);

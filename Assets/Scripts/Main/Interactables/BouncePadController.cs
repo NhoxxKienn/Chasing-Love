@@ -59,7 +59,7 @@ public class BouncePadController : MonoBehaviour
     void Update()
     {
         // Press and charge the bounce pad when hold down space
-        if (Input.GetButton("Jump") && !hasBounce && isInside)
+        if ((Input.GetButton("Jump") || Input.GetMouseButton(0)) && !hasBounce && isInside)
         {
             animator.SetBool("isPressed", true);
             if (!chargingBar.activeSelf)
@@ -78,7 +78,7 @@ public class BouncePadController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonUp("Jump") && isInside && !hasBounce)
+        if ((Input.GetButtonUp("Jump") || Input.GetMouseButtonUp(0)) && isInside && !hasBounce)
         {
             float jumpForce = baseJumpForce * charge;
             player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
